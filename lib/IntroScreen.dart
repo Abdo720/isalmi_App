@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:islamy/Assets/Style.dart';
 import 'package:islamy/Assets/color.dart';
-import 'package:islamy/HomeScreen/HomeScreen.dart';
+
+import 'screens/HomeScreen/HomeScreen.dart';
 
 class IntroScreen extends StatefulWidget{
   @override
@@ -10,6 +11,7 @@ class IntroScreen extends StatefulWidget{
 }
 
 class Intro extends State<IntroScreen>{
+  static const String routeName = "IntroScreen";
   List <PageViewModel> listPagesViewModel = [
     PageViewModel(
       titleWidget: Padding(
