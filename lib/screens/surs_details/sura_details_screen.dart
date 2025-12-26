@@ -11,12 +11,12 @@ class SuraDetailsScreen extends StatefulWidget {
 
 class SuraDetailsScreen_State extends State<SuraDetailsScreen> {
   static const String routeName = "SuraDetailsScreen";
-  List <String> varses = [];
+  List<String> varses = [];
 
   @override
   Widget build(BuildContext context) {
     var model = ModalRoute.of(context)?.settings.arguments as DataSuraList;
-    if(varses.isEmpty){
+    if (varses.isEmpty) {
       loadSura(model.index + 1);
     }
     return Scaffold(
@@ -44,7 +44,16 @@ class SuraDetailsScreen_State extends State<SuraDetailsScreen> {
                   child: ListView.builder(
                     itemCount: varses.length,
                     itemBuilder: (context, index) {
-                      return Center(child: Text("${varses[index]} ", textAlign: TextAlign.center, style: AppStyle.body));
+                      return Center(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          child: Text(
+                            "${varses[index]} ",
+                            textAlign: TextAlign.center,
+                            style: AppStyle.body,
+                          ),
+                        ),
+                      );
                     },
                   ),
                 ),
@@ -59,7 +68,7 @@ class SuraDetailsScreen_State extends State<SuraDetailsScreen> {
 
   Future<void> loadSura(int index) async {
     String SuraFile = await rootBundle.loadString("assets/files/$index.txt");
-    List <String> suravarses = SuraFile.split("\n");
+    List<String> suravarses = SuraFile.split("\n");
     varses = suravarses;
     setState(() {});
   }

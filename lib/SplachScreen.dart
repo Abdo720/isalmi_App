@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:islamy/IntroScreen.dart';
 import 'package:islamy/screens/HomeScreen/HomeScreen.dart';
 
+import 'Assets/Cash_Helper.dart';
+
 class SplachScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => Splach();
@@ -10,13 +12,23 @@ class SplachScreen extends StatefulWidget {
 class Splach extends State<SplachScreen>{
   static const String routeName = "SplashScreen";
  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    Future.delayed(Duration(seconds: 3) , (){
-      Navigator.pushReplacementNamed(context, Homescreen.routeName);
-    });
-  }
+ @override
+ void initState() {
+   super.initState();
+
+   Future.delayed(Duration(seconds: 3), () {
+     bool? opened = CashHelper.get("opened");
+
+     if (opened == true) {
+       Navigator.pushReplacementNamed(
+           context, Homescreen.routeName);
+     } else {
+       Navigator.pushReplacementNamed(
+           context, Intro.routeName);
+     }
+   });
+ }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
