@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:islamy/Assets/Cash_Helper.dart';
 import 'package:islamy/Assets/Style.dart';
 import 'package:islamy/Assets/color.dart';
 
@@ -74,10 +75,12 @@ class Intro extends State<IntroScreen>{
           color: Color(0xFF707070),
           activeColor: AppColors.primary
         ),
-        onDone: () {
+        onDone: () async {
+         await CashHelper.save(true);
           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Homescreen()));
         },
-        onSkip: () {
+        onSkip: () async {
+          await CashHelper.save(true);
           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Homescreen()));
         },
     );
