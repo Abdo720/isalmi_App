@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:islamy/Assets/color.dart';
-import 'package:islamy/HomeScreen/Hadeth_Tab.dart';
-import 'package:islamy/HomeScreen/Quran_Tab.dart';
-import 'package:islamy/HomeScreen/Radio_Tab.dart';
-import 'package:islamy/HomeScreen/Sebh_Tab.dart';
-import 'package:islamy/HomeScreen/Time_Tab.dart';
+import 'package:islamy/screens/HomeScreen/Hadeth_Tab.dart';
+import 'package:islamy/screens/HomeScreen/Quran_Tab.dart';
+import 'package:islamy/screens/HomeScreen/Radio_Tab.dart';
+import 'package:islamy/screens/HomeScreen/Sebh_Tab.dart';
+import 'package:islamy/screens/HomeScreen/Time_Tab.dart';
+
 
 class Homescreen extends StatefulWidget{
+  static const String routeName = "Home_screen";
 
   @override
   State<Homescreen> createState() => _HomescreenState();
 }
 
 class _HomescreenState extends State<Homescreen> {
+
   int ind = 0 ;
   List <Widget> Tabs = [
     QuranTab(),

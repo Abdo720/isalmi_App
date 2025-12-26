@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islamy/IntroScreen.dart';
+import 'package:islamy/screens/HomeScreen/HomeScreen.dart';
 
 class SplachScreen extends StatefulWidget {
   @override
@@ -7,12 +8,13 @@ class SplachScreen extends StatefulWidget {
 }
 
 class Splach extends State<SplachScreen>{
+  static const String routeName = "SplashScreen";
  @override
   void initState() {
     // TODO: implement initState
     super.initState();
     Future.delayed(Duration(seconds: 3) , (){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => IntroScreen() ));
+      Navigator.pushReplacementNamed(context, Homescreen.routeName);
     });
   }
   @override
